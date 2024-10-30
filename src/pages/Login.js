@@ -17,7 +17,7 @@ function Login() {
         };
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/user/login`, {
+            const response = await fetch(`http://localhost:3003/user/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ function Login() {
                     Trở Về Trang Chủ
                 </Link>
                 <Link 
-                    to="/register" 
+                    to="/user/register" 
                     className="w-44 m-2 py-2 px-4 bg-green-600 text-white font-bold rounded-md hover:bg-green-700 transition duration-200 text-center inline-block"
                 >
                     Đăng Ký

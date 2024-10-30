@@ -9,7 +9,7 @@ function Register() {
     const [rePassword, setRePassword] = useState('');  // Mật khẩu lặp lại
     const [error, setError] = useState(null);        // Thông báo lỗi
     const [success, setSuccess] = useState(null);    // Thông báo thành công
-    const [submit, setSubmit] = useState(true);     // Tran
+    const [submit, setSubmit] = useState(true);     // Trạng thái cho phép submit hay không.
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ function Register() {
             };
 
             try { // Call API
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/user/register`, {
+                const response = await fetch(`http://localhost:3003/user/register`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ function Register() {
                 // Kiểm tra phản hồi từ API
                 if (!response.ok) {
                     setError(result.message);
-                    setSuccess(null);
+                        setSuccess(null);
                 }
                 else{
                     setSuccess(result.message); // Lưu thông báo thành công
@@ -134,7 +134,7 @@ function Register() {
                 Trở Về Trang Chủ
             </Link>
             <Link 
-                to="/login" 
+                to="/user/login" 
                 className="w-44 m-2 py-2 px-4 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition duration-200 text-center inline-block"
             >
                 Đăng Nhập
