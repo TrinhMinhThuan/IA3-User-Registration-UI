@@ -23,7 +23,7 @@ function Register() {
             };
 
             try { // Call API
-                const response = await fetch(`http://localhost:3003/user/register`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/user/register`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
